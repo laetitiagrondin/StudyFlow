@@ -18,13 +18,11 @@ export default function TaskForm({ onCreate }) {
         <form onSubmit={handleSubmit}>
             <input
                 placeholder="Title"
-                onChange={(e) => setForm({ ...form, title: e.target.value })}
-            />
+                onChange={(e) => setForm({ ...form, title: e.target.value })}/>
 
             <input
                 placeholder="Description"
-                onChange={(e) => setForm({ ...form, Description: e.target.value })}
-            />
+                onChange={(e) => setForm({ ...form, Description: e.target.value })}/>
 
             <button type="submit">Add Task</button>
         </form>
