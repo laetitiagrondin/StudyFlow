@@ -3,7 +3,6 @@ import {
     getTasks,
     createTask,
     deleteTask,
-    generatePlanning
 } from "../services/taskAPI";
 
 import TaskForm from "../components/TaskForm";
