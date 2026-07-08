@@ -3,6 +3,7 @@ import {
     getTasks,
     createTask,
     deleteTask,
+    generatePlanning
 } from "../services/taskAPI";
 
 import TaskForm from "../components/TaskForm";
@@ -12,6 +13,7 @@ export default function TasksPage() {
     const [tasks, setTasks] = useState([]);
 
     const loadTasks = async () => {
+        const data = await getTasks();
         setTasks(data);
     };
 
@@ -26,7 +28,7 @@ export default function TasksPage() {
 
     const handleDelete = async (id) => {
         await deleteTask(id);
-        loadTasks;
+        loadTasks();
     };
 
     return (
