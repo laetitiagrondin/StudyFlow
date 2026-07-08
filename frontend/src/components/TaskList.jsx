@@ -1,11 +1,15 @@
-import TaskItem from "./TaskItem";
-
 export default function TaskList({ tasks, onDelete }) {
-    return (
-        <div>
-            {tasks.map((task) => (
-                <TaskItem key={task.id} task={task} onDelete />
-            ))}
-        </div>
-    );
+  return (
+    <ul>
+      {tasks.map((task) => (
+        <li key={task.id}>
+          {task.title}
+
+          <button onClick={() => onDelete(task.id)}>
+            Supprimer
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
 }
