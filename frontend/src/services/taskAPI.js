@@ -2,6 +2,7 @@ const API_URL = "http://localhost:3000/api";
 
 export const getTasks = async () => {
     const res = await fetch(`${API_URL}/tasks`);
+    if (!res.ok) throw new Error("Erreur getTasks");
     return res.json();
 };
 
@@ -11,6 +12,7 @@ export const createTask = async (task) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task),
     });
+    if (!res.ok) throw new Error("Erreur createTask");
     return res.json();
 };
 
@@ -20,11 +22,26 @@ export const updateTask = async (id, task) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task),
     });
+    if (!res.ok) throw new Error("Erreur updateTask");
     return res.json();
 };
 
 export const deleteTask = async (id) => {
-    await fetch(`${API_URL}/tasks/${id}`, {
+    const res = await fetch(`${API_URL}/tasks/${id}`, {
         method: "DELETE",
     });
+    if (!res.ok) throw new Error("Erreur deleteTask");
+    return true;
+};
+
+export const generatePlanning = async (tasks) => {
+  const res = await fetch(`${API_URL}/planning/generate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({tasks}),
+  });
+  if (!res.ok) throw new Error("Erreur planning");
+  return res.json();
 };
