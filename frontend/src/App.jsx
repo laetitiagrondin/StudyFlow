@@ -1,23 +1,36 @@
-import { useEffect, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 
-export default function App() {
-  const [tasks, setTasks] = useState([]);
+import Dashboard from "./pages/Dashboard";
+import TasksPage from "./pages/TasksPage";
+import Planning from "./pages/Planning";
+import Calendar from "./pages/Calendar";
 
-  useEffect(() => {
-    fetch("http://localhost:3000/tasks")
-      .then((res) => res.text())
-      .then((data) => setTasks(data));
-  }, []);
-
+function App() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>StudyFlow Dashboard</h1>
+    <div
+      style={{
+        padding: "20px 40px",
+        maxWidth: "1200px",
+        margin: "0 auto",
+      }}
+    >
+      <h1 style={{ marginBottom: "20px" }}>StudyFlow</h1>
 
-      <h2>Tasks</h2>
+      <nav className="navbar">
+        <Link to="/" className="nav-item">Tableau de bord</Link>
+        <Link to="/devoirs" className="nav-item">Mes devoirs</Link>
+        <Link to="/planning" className="nav-item">Planning</Link>
+        <Link to="/calendrier" className="nav-item">Calendrier</Link>
+      </nav>
 
-      <ul>
-        <li>{tasks}</li>
-      </ul>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/devoirs" element={<TasksPage />} />
+        <Route path="/planning" element={<Planning />} />
+        <Route path="/calendrier" element={<Calendar />} />
+      </Routes>
     </div>
   );
 }
+
+export default App;
