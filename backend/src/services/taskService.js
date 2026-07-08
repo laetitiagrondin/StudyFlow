@@ -33,8 +33,7 @@ export const updateTask = async (id, task) => {
             task.deadline,
             task.status,
             id,
-        ]
-    );
+        ]);
     return result.rows[0];
 }
 
