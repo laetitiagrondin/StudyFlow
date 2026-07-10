@@ -303,6 +303,7 @@ label {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   outline: none;
+  box-sizing: border-box;
 }
 
 .textarea {
@@ -311,7 +312,9 @@ label {
   padding: 10px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 .row {
