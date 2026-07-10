@@ -157,10 +157,15 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.day-number{
-    font-size:15px;
-    font-weight:500;
-    color:#111827;
+.day-number.today {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #3b82f6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cell {
